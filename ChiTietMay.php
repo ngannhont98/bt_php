@@ -3,7 +3,6 @@
 
 class ChiTietMay
 {
-
     public $maChiTiet;
 
     public function nhapChiTiet()
@@ -15,6 +14,6 @@ class ChiTietMay
 
     public function xuatChiTiet()
     {
-       return $this->maChiTiet;
+        echo "Ma chi tiet: " . $this->maChiTiet . "\n";
     }
 }

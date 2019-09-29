@@ -5,6 +5,7 @@ class Kho
 {
     public $maKho;
     public $DS_May = [];
+    public $soluongMay;
 
     public function nhapKho()
     {
@@ -12,27 +13,41 @@ class Kho
             $this->maKho = readline('Nhap ma kho: ');
         }
 
-
-        $soluongMay = readline('Nhap so luong may trong kho: ');
-        while( empty($soluongMay) || strval($soluongMay) !== strval(intval($soluongMay)) ){
-            $soluongMay = readline('Nhap sai (Khong duoc bo trong va chi nhap so nguyen). Nhap lai: ');
+        $this->soluongMay = readline('Nhap so luong may trong kho: ');
+        while( empty($this->soluongMay) || strval($this->soluongMay) !== strval(intval($this->soluongMay)) ){
+            $this->soluongMay = readline('Nhap sai (Khong duoc bo trong va chi nhap so nguyen). Nhap lai: ');
         }
 
-        for ($i = 1; $i <= $soluongMay; $i++) {
-            echo "============================================================= \n";
+        for ($i = 1; $i <= $this->soluongMay; $i++) {
+            echo "================================================================\n";
             echo "Nhap may thu $i: \n";
             $may = new May();
             $may->nhapMay();
-            $this->DS_May[] = $may;
+            $this->DS_May[$i] = $may;
         }
     }
 
     public function xuatKho()
     {
-        return [
-            'maKho' => $this->maKho,
-            'DS_may' => $this->DS_May
-        ];
+        echo "Ma kho: " . $this->maKho . "\n";
+        echo "So luong may: " . $this->soluongMay . "\n";
+        for ($i = 1; $i <= $this->soluongMay; $i++) {
+            echo "\n";
+            echo "============================================================================\n";
+            echo "================================ MAY THU $i ================================\n";
+            $this->DS_May[$i]->xuatMay();
+        }
+
+        echo "============================================================================\n";
+        $tien=$this->tinhTienKho();
+        echo "TONG TIEN CUA KHO $this->maKho: ";
+        echo str_pad($tien, 47, "-", STR_PAD_LEFT);
+        echo "\n";
+
+        $KL=$this->tinhKL_Kho();
+        echo "TONG KHOI LUONG KHO $this->maKho: ";
+        echo str_pad($KL, 40, "-", STR_PAD_LEFT);
+        echo "\n";
     }
 
     public function tinhTienKho()
@@ -56,9 +71,4 @@ class Kho
 
 $kho = new Kho();
 $kho->nhapKho();
-echo "\n";
 print_r($kho->xuatKho());
-echo "\n Tong KL la: ";
-print_r($kho->tinhKL_Kho());
-echo "\n Tong tien: ";
-print_r($kho->tinhTienKho());

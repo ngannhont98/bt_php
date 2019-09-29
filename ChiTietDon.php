@@ -22,14 +22,12 @@ class ChiTietDon extends ChiTietMay
         }
     }
 
-    public function xuatChiTiet()
+    public function xuatChiTietDon()
     {
-        return [
-            'maChiTiet' => parent::xuatChiTiet(),
-            'loaiChiTiet' => $this->loaiChiTiet,
-            'giaTien' => $this->giaTien,
-            'khoiLuong' => $this->khoiLuong
-        ];
+        parent::xuatChiTiet();
+        echo "Loai chi tiet: " . $this->loaiChiTiet . "\n";
+        echo "Gia tien: " . $this->giaTien . "\n";
+        echo "Khoi luong: " . $this->khoiLuong . "\n";
     }
 
     public function tinhTien()
