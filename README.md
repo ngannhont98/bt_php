@@ -1,8 +1,6 @@
 CHECK LIST:
 
-- Thiết kế class ChiTietMay, từ đó class ChiTietDon và ChiTietPhuc kế thừa lại
-- Chi tiết phức thì không cần nhập giá tiền và khối lượng. Trong chi tiết phức có nhiều chi tiết đơn và chi tiết phức khác
-- Nhập và xuất chi tiết đơn, chi tiết phức, máy và kho
-- In ra danh sách chi tiết cụ thể 
-- Tính tổng khối lượng và tổng tiền 
-- Validate các giá trị người dùng nhập vào
+- Nhập loại số lượng máy, số lượng chi tiết máy, số lượng chi tiết con phải là số nguyên và không được bỏ trống.
+- Nhập loại chi tiết chỉ được nhập 1 hoặc 2 (1=>ĐƠN , 2=>PHỨC)
+- Nhập giá tiền phải là số nguyên và không được bỏ trống.
+- Nhập khối lượng phải là số và không được bỏ trống.
